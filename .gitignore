@@ -1,0 +1,9 @@
+# Credenciales (usar proyecto/config/smtp_config.example.json como plantilla)
+proyecto/config/smtp_config.json
+
+# Sistema / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
