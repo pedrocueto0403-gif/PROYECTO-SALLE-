@@ -1,0 +1,410 @@
+/* ==============================================================================
+   ESTILOS INSTITUCIONALES Y SISTEMA DE DISEÑO - AULAVIRTUAL SALLE
+   Instituto La Salle Ciénaga Magdalena
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Paleta Institucional La Salle */
+    --lasalle-navy: #0F172A;
+    --lasalle-blue: #1E3A8A;
+    --lasalle-blue-light: #2563EB;
+    --lasalle-gold: #D4AF37;
+    --lasalle-gold-hover: #B89628;
+    --lasalle-gold-soft: #FEF3C7;
+    --lasalle-green: #10B981;
+    --lasalle-sky: #0EA5E9;
+    
+    /* Variables de Tema Claro (Default) */
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #0F172A;
+    --text-sidebar: #94A3B8;
+    --text-sidebar-active: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    --glass-bg: rgba(255, 255, 255, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Variables de Modo Oscuro */
+[data-theme="dark"] {
+    --bg-main: #0B0F19;
+    --bg-card: #151D2A;
+    --bg-sidebar: #070A10;
+    --text-sidebar: #64748B;
+    --text-sidebar-active: #60A5FA;
+    --text-primary: #F1F5F9;
+    --text-muted: #94A3B8;
+    --border-color: #1E293B;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* ==============================================================================
+   PANTALLA DE INICIO DE SESIÓN (LOGIN GLASSMORPHISM)
+   ============================================================================== */
+.login-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.72), rgba(30, 58, 138, 0.60)), 
+                url('../assets/school_bg.jpg') no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login-glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem;
+    max-width: 480px;
+    width: 90%;
+    animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.school-logo-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
+}
+
+.school-logo-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.motto-badge {
+    background: linear-gradient(90deg, #D4AF37 0%, #F59E0B 100%);
+    color: #0F172A;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ==============================================================================
+   LAYOUT PRINCIPAL ENTERPRISE DASHBOARD
+   ============================================================================== */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Fijo */
+.app-sidebar {
+    width: 270px;
+    background-color: var(--bg-sidebar);
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sidebar-nav {
+    padding: 1rem 0.8rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1rem;
+    color: var(--text-sidebar);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-bottom: 0.3rem;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    background: linear-gradient(90deg, var(--lasalle-blue) 0%, rgba(37, 99, 235, 0.8) 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.sidebar-link i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Topbar Encabezado */
+.app-main {
+    margin-left: 270px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.app-topbar {
+    height: 70px;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: background-color 0.3s ease;
+}
+
+/* Tarjetas (Cards) Modernas */
+.custom-card {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 2rem;
+}
+
+.custom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.kpi-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Botones Personalizados */
+.btn-lasalle-primary {
+    background: linear-gradient(135deg, var(--lasalle-blue) 0%, var(--lasalle-blue-light) 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 0.65rem 1.4rem;
+    font-weight: 600;
+    transition: all 0.25 ease;
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+}
+
+.btn-lasalle-primary:hover {
+    background: linear-gradient(135deg, #162B66 0%, #1D4ED8 100%);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(30, 58, 138, 0.35);
+}
+
+.btn-lasalle-gold {
+    background: linear-gradient(135deg, #D4AF37 0%, #F59E0B 100%);
+    color: #0F172A;
+    border: none;
+    border-radius: 12px;
+    padding: 0.65rem 1.4rem;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
+.btn-lasalle-gold:hover {
+    background: linear-gradient(135deg, #B89628 0%, #D97706 100%);
+    color: #0F172A;
+    transform: translateY(-1px);
+}
+
+/* Tablas Modernas */
+.table-custom {
+    color: var(--text-primary);
+}
+
+.table-custom th {
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--border-color);
+    padding: 1rem;
+}
+
+.table-custom td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive breakpoint */
+@media (max-width: 991px) {
+    .app-sidebar {
+        transform: translateX(-100%);
+    }
+    .app-sidebar.show {
+        transform: translateX(0);
+    }
+    .app-main {
+        margin-left: 0;
+    }
+}
+
+/* ==============================================================================
+   NUEVOS ESTILOS PARA EVITAR ELEMENTOS APIÑADOS Y AÑADIR FIRMAS Y SOPORTE DE IMPRESIÓN
+   ============================================================================== */
+
+/* Espaciadores adicionales */
+.gap-large {
+    gap: 2.2rem !important;
+}
+
+.table-custom td {
+    padding: 1.25rem 1rem !important;
+}
+
+.form-label {
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+.form-control, .form-select {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--lasalle-blue-light);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Firmas Predeterminadas */
+.signature-box {
+    display: inline-block;
+    text-align: center;
+    border-top: 1px solid var(--text-muted);
+    padding-top: 0.5rem;
+    margin-top: 1.5rem;
+    min-width: 220px;
+}
+
+.signature-svg {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: -10px;
+    user-select: none;
+    letter-spacing: 1px;
+}
+
+.signature-rector {
+    font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+    color: #1e293b;
+}
+
+.signature-docente {
+    font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+    color: #166534;
+}
+
+.signature-tesorero {
+    font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+    color: #075985;
+}
+
+.signature-psicologo {
+    font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+    color: #854d0e;
+}
+
+/* Estilos de Impresión */
+@media print {
+    body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+    }
+    
+    .app-sidebar, .app-topbar, .btn, button, footer, .dropdown, #themeToggleBtn, .sidebar-nav {
+        display: none !important;
+    }
+    
+    .app-main {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .p-4 {
+        padding: 0 !important;
+    }
+    
+    .custom-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+    }
+    
+    .print-container {
+        display: block !important;
+        width: 100% !important;
+    }
+}
