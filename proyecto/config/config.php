@@ -8,6 +8,7 @@ define('APP_NAME', 'AulaVirtual Salle');
 define('INSTITUTION_NAME', 'Instituto La Salle');
 define('LOCATION_NAME', 'Ciénaga – Magdalena');
 define('MOTTO', 'Dios, Ciencia y Virtud');
+
 $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
     || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
     || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
